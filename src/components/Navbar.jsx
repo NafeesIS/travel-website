@@ -1,9 +1,32 @@
-import React from "react";
-
+"use client";
+import React, { useState } from "react";
+import { HiMenuAlt3 } from "react-icons/hi";
 const Navbar = () => {
+  const [openNav, setOpenNav] = useState(false);
+
   return (
-    <div>
-      <h1>Experiences</h1>
+    <div className="absolute w-full flex justify-between p-4 items-center">
+      <h1 className="text-white font-bold text-2xl z-20">Experiences</h1>
+      <HiMenuAlt3
+        onClick={() => setOpenNav(!openNav)}
+        className="z-20 text-white cursor-pointer"
+        size={25}
+      />
+      <div
+        className={
+          openNav
+            ? "fixed text-gray-300 left-0 top-0 w-full h-screen bg-black/95 px-4 py-7 flex flex-col ease-in duration-300 z-10"
+            : "absolute top-0 h-screen left-[-100%] ease-in duration-300 z-10"
+        }
+      >
+        <ul className="flex flex-col text-gray-300 left-0 top-0 w-full h-full items-center justify-center">
+          <li className="font-bold text-3xl p-8">Home</li>
+          <li className="font-bold text-3xl p-8">Destinations</li>
+          <li className="font-bold text-3xl p-8">Reservations</li>
+          <li className="font-bold text-3xl p-8">Amenities</li>
+          <li className="font-bold text-3xl p-8">Rooms</li>
+        </ul>
+      </div>
     </div>
   );
 };
