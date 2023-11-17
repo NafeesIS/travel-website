@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+const nextConfig = {
+    images: {
+      domains: ["unsplash.com"], // Specify the domain(s) for which to optimize images
+    },
+  };
+  
+  module.exports = nextConfig;
